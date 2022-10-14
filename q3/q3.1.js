@@ -1,13 +1,17 @@
 //Q3. Give 3 real world examples where async/await has been used?
 
-//a) Let's open our Shop
+//b) Let's open our Shop
 /*
 We're gonna create two functions ->
 
-* kitchen: to make ice cream
-* time: to assign the amount of time each small task will take.
+Place Order =2
+Cut the Fruit = 2
+Add water and ice = 1
+Start the machine = 1
+Select Container = 2
+Select Toppings = 3
+Serve Ice Cream = 2
 */
-
 // Let's start! First, create the time function:
 
 let is_shop_open = true;
@@ -36,20 +40,35 @@ function time(ms) {
 
 async function kitchen(){
     try{
- 
- // time taken to perform this 1 task
-      await time(2000)
-      console.log(`${stocks.Fruits[0]} was selected`)
+	await time(2000)
+	console.log(`${stocks.Fruits[0]} was selected`)
+
+	await time(0000)
+	console.log("production has started")
+
+	await time(2000)
+	console.log("fruit has been chopped")
+
+	await time(1000)
+	console.log(`${stocks.liquid[0]} and ${stocks.liquid[1]} added`)
+
+	await time(1000)
+	console.log("start the machine")
+
+	await time(2000)
+	console.log(`ice cream placed on ${stocks.holder[1]}`)
+
+	await time(3000)
+	console.log(`${stocks.toppings[0]} as toppings`)
+
+	await time(2000)
+	console.log("Serve Ice Cream")
     }
- 
+
     catch(error){
-      console.log("Customer left", error)
+	 console.log("customer left")
     }
- 
-    finally{
-       console.log("Day ended, shop closed")
-     }
- }
+}
  
  // Trigger
  kitchen();
